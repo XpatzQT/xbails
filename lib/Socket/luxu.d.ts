@@ -175,6 +175,10 @@ declare namespace imup {
         document?: string | Buffer | { url: string };
         [key: string]: any;
     }
+    
+    interface GroupLabel {
+        labelText: string;
+    }
  
     interface MessageContent {
         requestPaymentMessage?: PaymentMessage;
@@ -183,8 +187,9 @@ declare namespace imup {
         albumMessage?: AlbumItem[];
         eventMessage?: EventMessage;
         pollResultMessage?: PollResultMessage;
-        statusMentionMessage?: StatusMentionMessage;
+        groupStatus?: GroupStatus;
         orderMessage?: OrderMessage;
+        groupLabel?: GroupLabel;
         sender?: string;
     }
 
@@ -209,7 +214,7 @@ declare class imup {
         relayMessageFn?: (jid: string, content: any, options?: any) => Promise<any>
     );
     
-    detectType(content: imup.MessageContent): 'PAYMENT' | 'PRODUCT' | 'INTERACTIVE' | 'ALBUM' | 'EVENT' | 'POLL_RESULT' | 'STATUS_MENTION' | 'ORDER' | null;
+    detectType(content: imup.MessageContent): 'PAYMENT' | 'PRODUCT' | 'INTERACTIVE' | 'ALBUM' | 'EVENT' | 'POLL_RESULT' | 'GROUP_STATUS' | 'ORDER' | 'GROUP_LABEL' |null;
 
     handlePayment(
         content: { requestPaymentMessage: imup.PaymentMessage },
@@ -259,9 +264,14 @@ declare class imup {
     ): Promise<any>;
     
     handleGroupStory(
-        content: { orderMessage: imup.GroupStatus },
+        content: { groupStatus: imup.GroupStatus },
         jid: string,
         quoted?: proto.IWebMessageInfo
+    ): Promise<any>;
+    
+    handleGbLabel(
+        content: { groupLabel: imup.GroupLabel },
+        jid: string,
     ): Promise<any>;
 }
 
