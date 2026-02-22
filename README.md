@@ -5,7 +5,7 @@
 
 --- 
 
-## Usage
+## Caption
 ```javascript
   "name": "XpatzQT",
   "year": "2026",
