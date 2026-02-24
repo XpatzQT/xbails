@@ -1,16 +1,16 @@
 {
-    "name": "tenka-san/WaBails",
+    "name": "xbails",
     "version": "1.7.3",
-    "description": "WhatsApp Modified By 7eppeli",
+    "description": "WhatsApp Modified",
     "keywords": [
         "whatsapp-baileys"
     ],
-    "homepage": "https://github.com/tenka-san/WaBails",
+    "homepage": "https://github.com/XpatzQT/xbails",
     "repository": {
-        "url": "https://github.com/tenka-san/WaBails"
+        "url": "https://github.com/XpatzQT/xbails"
     },
     "license": "MIT",
-    "author": "7eppeli - Determinator",
+    "author": "XpatzX",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "files": [
